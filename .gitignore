@@ -1,0 +1,7 @@
+*/.objs
+*.o
+*.out
+*.d
+.vscode
+*/main
+**/main
