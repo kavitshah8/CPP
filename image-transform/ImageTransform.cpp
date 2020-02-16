@@ -6,17 +6,6 @@
 #include "uiuc/HSLAPixel.h"
 #include "ImageTransform.h"
 
-/* ******************
-(Begin multi-line comment...)
-
-Write your name and email address in the comment space here:
-
-Name:
-Email:
-
-(...end multi-line comment.)
-******************** */
-
 using uiuc::PNG;
 using uiuc::HSLAPixel;
 
@@ -28,19 +17,12 @@ using uiuc::HSLAPixel;
  * @return The grayscale image.
  */
 PNG grayscale(PNG image) {
-  /// This function is already written for you so you can see how to
-  /// interact with our PNG class.
   for (unsigned x = 0; x < image.width(); x++) {
     for (unsigned y = 0; y < image.height(); y++) {
       HSLAPixel & pixel = image.getPixel(x, y);
-
-      // `pixel` is a reference to the memory stored inside of the PNG `image`,
-      // which means you're changing the image directly. No need to `set`
-      // the pixel since you're directly changing the memory of the image.
       pixel.s = 0;
     }
   }
-
   return image;
 }
 
@@ -67,20 +49,14 @@ PNG grayscale(PNG image) {
  * @return The image with a spotlight.
  */
 PNG createSpotlight(PNG image, int centerX, int centerY) {
-  
-  int euclideanDistance, distanceX, distanceY;
-  
+  int euclideanDistance, distanceX, distanceY;  
   for (unsigned x = 0; x < image.width(); x++) {
-    for (unsigned y = 0; y < image.height(); y++) {
-      
+    for (unsigned y = 0; y < image.height(); y++) {   
       HSLAPixel &pixel = image.getPixel(x, y);
-      
       distanceX = x - centerX;
       distanceY = y - centerY;
       euclideanDistance = sqrt( pow(distanceX, 2) + pow(distanceY, 2) );
-      
       pixel.l *= (euclideanDistance >= 160) ? 0.2 : 1 - (euclideanDistance * 0.005);
-      
     }
   }
   return image;
@@ -98,7 +74,6 @@ PNG createSpotlight(PNG image, int centerX, int centerY) {
  * @return The illinify'd image.
 **/
 PNG illinify(PNG image) {
-
   for (unsigned x = 0; x < image.width(); x++) {
     for (unsigned y = 0; y < image.height(); y++) {
       HSLAPixel &pixel = image.getPixel(x, y);
@@ -125,7 +100,6 @@ PNG watermark(PNG firstImage, PNG secondImage) {
   for (unsigned x = 0; x < secondImage.width(); x++) {
     for (unsigned y = 0; y < secondImage.height(); y++) {
       HSLAPixel &stencilPixel = secondImage.getPixel(x, y);
-
         if (stencilPixel.l == 1.0) {
           HSLAPixel &basePixel = firstImage.getPixel(x, y);
           if (basePixel.l + 0.2 < 1) {
