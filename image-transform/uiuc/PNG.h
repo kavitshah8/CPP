@@ -118,7 +118,7 @@ namespace uiuc {
     unsigned int width_;            /*< Width of the image */
     unsigned int height_;           /*< Height of the image */
     HSLAPixel *imageData_;          /*< Array of pixels */
-    HSLAPixel defaultPixel_;        /*< Default pixel, returned in cases of errors */
+    // HSLAPixel defaultPixel_;        /*< Default pixel, returned in cases of errors */
 
     /**
      * Copeies the contents of `other` to self
