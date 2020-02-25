@@ -21,6 +21,10 @@ const Cube& Cube::operator=(const Cube & obj) {
     return *this;
 }
 
+Cube::~Cube() {
+    std::cout<<"Destructor was invoked."<<std::endl;
+}
+
 int Cube::getVolunme() {
     return _length * _length * _length; 
 }

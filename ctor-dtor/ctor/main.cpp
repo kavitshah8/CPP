@@ -22,6 +22,16 @@ Cube bar() {
     return a;
 }
 
+/*
+
+Variables can be created by three ways
+    - By value
+    - By reference
+    - By pointer
+
+In the same way, functions arguments and return type 
+*/
+
 int main () {
     // Custom constructor was called.
     Cube a;
