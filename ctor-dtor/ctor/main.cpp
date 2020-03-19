@@ -62,6 +62,8 @@ int main () {
     // Copy ctor will be called as returned obj from bar has to be copied onto main's stack frame
     // Ideally, one, copy, copy ctor should be called  
     // Note: some how it does not call copy ???
+    // Answer: https://www.reddit.com/r/cpp_questions/comments/fgwhxk/stack_vs_heap_clarification/fk7mnwm/
+    // https://en.m.wikipedia.org/wiki/Copy_elision#Return_value_optimization
     Cube i = bar();
 
     return 0;
