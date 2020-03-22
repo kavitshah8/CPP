@@ -1,0 +1,6 @@
+Complete Stack.cpp
+
+Complete Game.cpp
+
+compile g++ Cube.cpp Stack.cpp Game.cpp main.cpp
+

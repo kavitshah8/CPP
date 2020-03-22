@@ -1,13 +1,13 @@
 #include "../Cube.h"
 #include <iostream>
 
-bool sendCube(Cube cube) {
+bool sendCubeByValue(Cube cube) {
     std::cout <<"Inside sendCube()" << std::endl;
     std::cout <<"Returning from sendCube()" << std::endl;
     return true;
 }
 
-bool sendCube(const Cube* c){
+bool sendCubeByPointer(const Cube* c){
     return true;
 }
 
@@ -53,11 +53,11 @@ int main () {
     Cube *f = &d; // By Pointer
 
     // Copy ctor will be called as it c has to be copied into sendCube's stack frame
-    sendCube(c); // Pass By Value
+    sendCubeByValue(c); // Pass By Value
     // No constructor will be called as we are passing an alias of an instance
     sendCubeByReference(c); // Pass by reference
     // No constructor will be called as we are passing a pointer to an instance
-    sendCube(&c); // Pass by pointer
+    sendCubeByPointer(&c); // Pass by pointer
 
     // Copy ctor will be called as returned obj from bar has to be copied onto main's stack frame
     // Ideally, one, copy, copy ctor should be called  
