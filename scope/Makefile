@@ -1,4 +1,3 @@
-foo:
-	g++ main.cpp -o scope
+FILES = main.cpp
 
 include ../_make/generic.mk
