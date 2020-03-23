@@ -1,7 +1,7 @@
 # compiler/linker configs
 CXX = g++
 LD = g++
-EXE = main
+EXE = exe
 
 all:
 	${CXX} main.cpp -o ${EXE}
