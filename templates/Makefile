@@ -1,6 +1,3 @@
-# compiler/linker configs
-CXX = g++
-LD = g++
+FILES = main.cpp
 
-all: main.cpp
-	g++ -o template main.cpp
+include ../_make/generic.mk
