@@ -99,34 +99,35 @@ void LinkedList<T>::insertOrdered(const T& newData) {
   // cases. Also update the size_ variable of the list.
   Node *newNode = new Node();
   newNode->data = newData;
-  size_++;
 
-  // Insert newNode at the begining and update _head
-  if(newData < head_->data) {
-    newNode->next = head_;
-    head_->prev = newNode;
-    head_ = newNode;
+  /** Four scenarios
+   * 1. List is empty
+   * 2. Insert node in front, update HEAD
+   * 3. Inser in the middle
+   * 4. Insert node at the end, update TAIL
+  */
+
+  // Scenario 1 and 2
+  if(empty() || newData < front()) {
+    pushFront(newData);
     return;
   }
 
-  Node* iterator = head_->next;
-  while (iterator)
-  {
-    if (newData < iterator->data)
-    {
+  Node* iterator = getHeadPtr()->next;
+  while (iterator) {
+    // Scenario 3
+    if (newData < iterator->data) {
       iterator->prev->next = newNode;
       newNode->prev = iterator->prev;
       newNode->next = iterator;
       iterator->prev = newNode;
+      size_++;
       break;
     }
-    // Inset element at the end and update the tail
-    if(iterator == tail_)
-    {
-      newNode->prev = tail_;
-      tail_->next = newNode;
-      tail_ = newNode;
-      iterator = tail_;
+    // Scenario 4
+    if (iterator == getTailPtr()) { 
+      pushBack(newData);
+      break;
     }
     iterator = iterator->next;
   }
@@ -277,6 +278,55 @@ LinkedList<T> LinkedList<T>::merge(const LinkedList<T>& other) const {
   // 4. Remember, DO NOT try to use insertOrdered here. That would be
   //    very slow.
 
+    if (left.empty() && right.empty())
+      return merged;
+    if (left.empty())
+      return right;
+    if (right.empty())
+      return left;
+    int size = left.size() + right.size();
+    for(int i = 1; i <= size; i++) {
+        if (!left.empty() && !right.empty()) 
+        {
+          if(left.front() < right.front())
+          {
+            merged.pushBack(left.front());
+            left.popFront();
+          }
+          else
+          {
+            merged.pushBack(right.front());
+            right.popFront();
+          }
+        }
+      
+      if (left.empty() && !right.empty()) {
+        merged.pushBack(right.front());
+        right.popFront();
+      }
+
+      if (!left.empty() && right.empty()) {
+        merged.pushBack(left.front());
+        left.popFront();
+      }
+    }
+    // while (left.size() >=0 || right.size() >= 0)
+    // {
+    //   if(!left.empty() && !right.empty()) 
+    //   {
+    //     if(left.front() < right.front())
+    //     {
+    //       merged.pushBack(left.front());
+    //       left.popFront();
+    //     }
+    //     else
+    //     {
+    //       merged.pushBack(right.front());
+    //       right.popFront();
+    //     } 
+    //   }
+    // }
+    
   // -----------------------------------------------------------
 
   // We return the merged list by value here. It may be copied out of the

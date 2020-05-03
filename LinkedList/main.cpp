@@ -116,6 +116,7 @@ void informalTests() {
   }
 
   {
+    std::cout << std::endl << "=================================" << std::endl;
     std::cout << std::endl << "Testing insertOrdered:" << std::endl;
 
     LinkedList<int> expected;
@@ -143,7 +144,6 @@ void informalTests() {
     std::cout << "Expected: " << expected << std::endl;
     if (l != expected) errorReaction("wrong result");
 
-    std::cout << "=========================" << std::endl;
     std::cout << "Testing copy constructor:" << std::endl;
     LinkedList<int> l2(l);
     std::cout << "Copy: " << l2 << std::endl;
@@ -184,6 +184,7 @@ void informalTests() {
 
     if (l2 != expected) errorReaction("Bug in insertionSort (check insertOrdered first)");
     if (l2 == expected && !l2.isSorted()) errorReaction("Bug in isSorted");
+    std::cout << std::endl << "*************************" << std::endl;
   }
 
   {
