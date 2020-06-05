@@ -25,19 +25,32 @@ public:
   }
 };
 
-int count(Node *n) {
-  static int total;
+int countWithoutStatic(Node *n, int total) {
+  int totalNodes = total;
+  if (n == nullptr) {
+    return totalNodes;
+  }
   
+  totalNodes = countWithoutStatic(n->left, totalNodes);
+  totalNodes = countWithoutStatic(n->right, totalNodes);
+  totalNodes++;
+  // Implement count() here.
+
+  return totalNodes;
+}
+
+int count(Node *n) {
+  static int totalNodes;
   if (n == nullptr) {
     return 0;
   }
   
   count(n->left);
   count(n->right);
-  total++;
+  totalNodes++;
   // Implement count() here.
 
-  return total;
+  return totalNodes;
 }
 
 int main() {
