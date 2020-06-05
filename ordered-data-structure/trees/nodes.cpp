@@ -28,20 +28,22 @@ public:
 int countWithoutStatic(Node *n, int total) {
   int totalNodes = total;
   if (n == nullptr) {
+    // exit path for leaf nodes
     return totalNodes;
   }
   
   totalNodes = countWithoutStatic(n->left, totalNodes);
   totalNodes = countWithoutStatic(n->right, totalNodes);
   totalNodes++;
-  // Implement count() here.
 
+  // exit path for non-leaf nodes
   return totalNodes;
 }
 
 int count(Node *n) {
   static int totalNodes;
   if (n == nullptr) {
+    // exit path for leaf nodes
     return 0;
   }
   
@@ -50,6 +52,7 @@ int count(Node *n) {
   totalNodes++;
   // Implement count() here.
 
+  // exit path for non-leaf nodes
   return totalNodes;
 }
 
