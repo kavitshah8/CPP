@@ -1,6 +1,15 @@
 #include <iostream>
 #include "Cube.h"
 
+// Default Constructor
+// Default Assignment operator
+
+// Copy Constructor
+// Copy Assignment operator
+
+// Move Constructor
+// Move Assignment operator
+
 Cube::Cube() {
     std::cout<<"Custom constructor was invoked." << std::endl;
 }
@@ -17,7 +26,7 @@ Cube::Cube(const Cube& obj) {
 
 const Cube& Cube::operator=(const Cube & obj) {
     _length = obj._length;
-    std::cout << "Assignment operator was invoked." << std::endl;
+    std::cout << "Copy Assignment operator was invoked." << std::endl;
     return *this;
 }
 
