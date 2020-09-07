@@ -1,0 +1,1 @@
+Programming exercise done in online Coursera course of Accelerated CS Fundamentals.
