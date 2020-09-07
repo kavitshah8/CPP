@@ -3,9 +3,11 @@
 int main() {
     int x = 10;
     // can be changed, in the sense it can point to some other variable
-    int *pointerToX = &x;
+    // int *pointerToX = &x;
+    int *pointerToX;
     // can not be changed
     int &referenceToX = x;
+
 
     std::cout << "x = " << x << std::endl;
     std::cout << "Address of x = " << pointerToX << std::endl;
@@ -26,5 +28,6 @@ int main() {
         // A pointer can be declared as void but a reference can never be void: void &a = x; // Not valid
     // A reference must be initialized when declared. There is no such restriction with pointers
     
+
     return 0;
 }

@@ -5,3 +5,6 @@ README.md
 CPP Conferences:
     - https://cppnow.org/
     - https://cppcon.org/
+
+Motivation
+ - Contribute more to the product in meaningful way
