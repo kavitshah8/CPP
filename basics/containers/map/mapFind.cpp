@@ -19,7 +19,7 @@ int main() {
         std::map<char, int>::iterator iterator2;
         iterator2 = mymap.find(c);
         if (iterator2 != mymap.end())
-            std::cout << " is an element of mymap.\n";
+            std::cout << " is an element of mymap." << iterator2->second << "\n";
         else 
             std::cout << " is not an element of mymap.\n";
     }
