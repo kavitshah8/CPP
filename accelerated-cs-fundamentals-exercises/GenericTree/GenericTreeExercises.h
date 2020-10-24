@@ -96,7 +96,6 @@ static void treeFactory(GenericTree<int>& tree) {
   // Build the contents of tree so that it matches the diagram above
   // when you print it out. The main() function runs that test for you.
 
-
   auto root = tree.getRootPtr();
   root->data = 4;
   auto eight = root->addChild(8);
@@ -330,7 +329,20 @@ std::vector<T> traverseLevels(GenericTree<T>& tree) {
   // the results vector. They should be placed in the vector in level order.
   // Remember that you can add a copy of an item to the back of a std::vector
   // with the .push_back() member function.
+  std::queue<TreeNode*> q;
+  q.push(rootNodePtr);
+  std::cout << rootNodePtr->data << std::endl;
 
+  while (!q.empty())
+  {
+    TreeNode* t = q.front();
+    results.push_back(t->data);
+    for(TreeNode* childPtr: t->childrenPtrs) {
+      q.push(childPtr);
+    }
+    q.pop();
+  }
+   
   // ...
 
   return results;
