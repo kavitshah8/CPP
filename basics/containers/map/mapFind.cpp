@@ -13,6 +13,12 @@ int main() {
     // http://www.cplusplus.com/reference/map/map/count/
     // Do the same example using std::map::find instead of std::map::count
 
+    // there are four ways to find a key in a map
+    // []
+    // .at()
+    // .count()
+    // .find()
+    
     for (c='a'; c<'h'; c++)
     {
         std::cout << c;
