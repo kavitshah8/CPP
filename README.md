@@ -7,6 +7,11 @@ README.md
 
  - [Constructor initialization lists c++](https://www.cprogramming.com/tutorial/initialization-lists-c++.html)
 
+ - const
+    - [const class objects AND const member functions](https://www.learncpp.com/cpp-tutorial/810-const-class-objects-and-member-functions/)
+    - [const int * vs const int * const vs int const *](https://stackoverflow.com/questions/1143262/what-is-the-difference-between-const-int-const-int-const-and-int-const)
+        - [Clock wise spiral rule](http://c-faq.com/decl/spiral.anderson.html)
+
 ### CPP Conferences
     - https://cppnow.org/
     - https://cppcon.org/
